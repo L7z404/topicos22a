@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,48 +18,20 @@ Route::get('/', function () {
 	return view('auth/login');
 });
 
-// Route::get('/registro_usuario', function () {
-// 	return view('registro_usuario');
-// });
+Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'user'])->name('usuarios.index');
+Route::post('/usuarios/crear', [App\Http\Controllers\UserController::class, 'store'])->name('usuarios.store');
+Route::get('/usuarios/crear', [App\Http\Controllers\UserController::class, 'create_user'])->name('usuarios.create');
 
-// Route::get('/detalle_usuario', function () {
-// 	return view('detalle_usuario');
-// });
-
-// Route::get('/alta_productos', function () {
-// 	return view('alta_productos');
-// });
-
-// Route::get('/detalle_productos', function () {
-// 	return view('detalle_productos');
-// });
-
-// Route::get('/acerca_de', function () {
-// 	return view('acerca_de');
-// });
-
-Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'user'])->name('usuarios');
 Route::get('/clientes', [App\Http\Controllers\DetalleClientesController::class, 'cliente'])->name('cliente');
+Route::get('/clientes/crear', [App\Http\Controllers\DetalleClientesController::class, 'create_cliente'])->name('cliente.create');
+
 Route::get('/productos', [App\Http\Controllers\DetalleProductosController::class, 'producto'])->name('producto');
+			
 Route::get('/proveedores', [App\Http\Controllers\DetalleProveedorController::class, 'proveedor'])->name('proveedor');
 
 
 Auth::routes();
 Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home')->middleware('auth');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

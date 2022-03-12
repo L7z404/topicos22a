@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Http\Requests\UserRequest;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -18,4 +17,18 @@ class UserController extends Controller
     {
         return view('Usuarios.usuarios');
     }
+    
+    public function create_user(){
+        return view('Usuarios.create_usuario');
+    }
+    
+    public function store(request $request){
+        User::create($request->only('name','email')
+        +[
+            'password'=>bcrypt($request->input('password')),
+            
+        ]);
+        return redirect()->route('usuarios.index')->with('success','Usuario registrado correctamente');
+    }
+    
 }

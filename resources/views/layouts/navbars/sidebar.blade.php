@@ -6,7 +6,7 @@
   -->
   <div class="logo">
     <a href="https://creative-tim.com/" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
+      {{ __('Tópicos22a') }}
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -18,7 +18,7 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'Usuarios' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('usuarios') }}">
+        <a class="nav-link" href="{{ route('usuarios.index') }}">
           <i class="material-icons">account_circle</i>
             <p>{{ __('Usuario') }}</p>
         </a>
