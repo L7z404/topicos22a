@@ -19,8 +19,22 @@ Route::get('/', function () {
 });
 
 Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'user'])->name('usuarios.index');
+
+
+
+
+Route::get('/usuarios/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('usuarios.edit');
+Route::post('/usuarios/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('usuarios.update');
+
+
+
+
 Route::post('/usuarios/crear', [App\Http\Controllers\UserController::class, 'store'])->name('usuarios.store');
 Route::get('/usuarios/crear', [App\Http\Controllers\UserController::class, 'create_user'])->name('usuarios.create');
+
+
+
+
 
 Route::get('/clientes', [App\Http\Controllers\DetalleClientesController::class, 'cliente'])->name('cliente');
 Route::get('/clientes/crear', [App\Http\Controllers\DetalleClientesController::class, 'create_cliente'])->name('cliente.create');

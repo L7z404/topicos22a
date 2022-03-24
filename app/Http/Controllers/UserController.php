@@ -31,4 +31,16 @@ class UserController extends Controller
         return redirect()->route('usuarios.index')->with('success','Usuario registrado correctamente');
     }
     
+    public function edit($id)
+    {
+        $user = User::find($id);
+        return view('Usuarios.editar_usuario', compact('user'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = user::find($id);
+        $user->update($request->all());
+        return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado exitosamente');
+    }
 }
