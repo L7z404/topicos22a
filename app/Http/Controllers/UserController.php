@@ -13,9 +13,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $model
      * @return \Illuminate\View\View
      */
-    public function user()
+    public function user(User $user)
     {
-        return view('Usuarios.usuarios');
+        $users = User::all();
+        return view('Usuarios.usuarios', compact('users'));
     }
     
     public function create_user(){
@@ -42,5 +43,12 @@ class UserController extends Controller
         $user = user::find($id);
         $user->update($request->all());
         return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado exitosamente');
+    }
+    
+    public function delete($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado exitosamente');
     }
 }
