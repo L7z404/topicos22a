@@ -13,8 +13,7 @@ class UserController extends Controller
      * @param  \App\Models\User  $model
      * @return \Illuminate\View\View
      */
-    public function user(User $user)
-    {
+    public function user(User $user){
         $users = User::all();
         return view('Usuarios.usuarios', compact('users'));
     }
@@ -32,21 +31,32 @@ class UserController extends Controller
         return redirect()->route('usuarios.index')->with('success','Usuario registrado correctamente');
     }
     
-    public function edit($id)
-    {
+    public function edit($id){
         $user = User::find($id);
         return view('Usuarios.editar_usuario', compact('user'));
     }
+    
+    public function details($id){
+        $user = User::find($id);
+        return view('Usuarios.detalles_usuario', compact('user'));
+    }
 
-    public function update(Request $request, $id)
-    {
-        $user = user::find($id);
-        $user->update($request->all());
+    public function update(Request $request, $id){
+        $user = user::findorFail($id);
+        $data = $request->only('name','email');
+        if(trim($request->password)==''){
+            $data=$request->except('password');
+        }
+        else{
+            $data=$request->all();
+            $data['password']=bcrypt($request->password);
+        }
+
+        $user->update($data);
         return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado exitosamente');
     }
     
-    public function delete($id)
-    {
+    public function delete($id){
         $user = User::findOrFail($id);
         $user->delete();
         return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado exitosamente');

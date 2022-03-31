@@ -24,7 +24,14 @@ Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'user'])->n
 
 
 Route::get('/usuarios/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('usuarios.edit');
+
+Route::get('/usuarios/detalles/{id}', [App\Http\Controllers\UserController::class, 'details'])->name('usuarios.detalles');
+
+
 Route::post('/usuarios/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('usuarios.update');
+
+
+
 
 Route::delete('/usuarios/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('usuarios.delete');
 
