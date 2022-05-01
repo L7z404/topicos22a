@@ -19,34 +19,25 @@ Route::get('/', function () {
 });
 
 Route::get('/usuarios', [App\Http\Controllers\UserController::class, 'user'])->name('usuarios.index');
-
-
-
-
 Route::get('/usuarios/edit/{id}', [App\Http\Controllers\UserController::class, 'edit'])->name('usuarios.edit');
-
 Route::get('/usuarios/detalles/{id}', [App\Http\Controllers\UserController::class, 'details'])->name('usuarios.detalles');
-
-
 Route::post('/usuarios/update/{id}', [App\Http\Controllers\UserController::class, 'update'])->name('usuarios.update');
-
-
-
-
 Route::delete('/usuarios/delete/{id}', [App\Http\Controllers\UserController::class, 'delete'])->name('usuarios.delete');
-
-
-
-
 Route::post('/usuarios/crear', [App\Http\Controllers\UserController::class, 'store'])->name('usuarios.store');
 Route::get('/usuarios/crear', [App\Http\Controllers\UserController::class, 'create_user'])->name('usuarios.create');
 
 
-
-
-
 Route::get('/clientes', [App\Http\Controllers\DetalleClientesController::class, 'cliente'])->name('cliente');
 Route::get('/clientes/crear', [App\Http\Controllers\DetalleClientesController::class, 'create_cliente'])->name('cliente.create');
+Route::get('/clientes/edit/{id}', [App\Http\Controllers\DetalleClientesController::class, 'edit'])->name('clientes.edit');
+Route::get('/clientes/detalles/{id}', [App\Http\Controllers\DetalleClientesController::class, 'details'])->name('clientes.detalles');
+Route::post('/clientes/update/{id}', [App\Http\Controllers\DetalleClientesController::class, 'update'])->name('clientes.update');
+Route::delete('/clientes/delete/{id}', [App\Http\Controllers\DetalleClientesController::class, 'delete'])->name('clientes.delete');
+Route::post('/clientes/crear', [App\Http\Controllers\DetalleClientesController::class, 'store'])->name('clientes.store');
+
+
+
+
 
 Route::get('/productos', [App\Http\Controllers\DetalleProductosController::class, 'producto'])->name('producto');
 			

@@ -42,7 +42,7 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $id){
-        $user = user::findorFail($id);
+        $user = User::findorFail($id);
         $data = $request->only('name','email');
         if(trim($request->password)==''){
             $data=$request->except('password');
