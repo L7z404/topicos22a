@@ -40,8 +40,17 @@ Route::post('/clientes/crear', [App\Http\Controllers\DetalleClientesController::
 
 
 Route::get('/productos', [App\Http\Controllers\DetalleProductosController::class, 'producto'])->name('producto');
-			
+
+
+
 Route::get('/proveedores', [App\Http\Controllers\DetalleProveedorController::class, 'proveedor'])->name('proveedor');
+Route::get('/proveedores/crear', [App\Http\Controllers\DetalleProveedorController::class, 'create_proveedor'])->name('proveedor.create');
+Route::get('/proveedores/edit/{id}', [App\Http\Controllers\DetalleProveedorController::class, 'edit'])->name('proveedores.edit');
+Route::get('/proveedores/detalles/{id}', [App\Http\Controllers\DetalleProveedorController::class, 'details'])->name('proveedores.detalles');
+Route::post('/proveedores/update/{id}', [App\Http\Controllers\DetalleProveedorController::class, 'update'])->name('proveedores.update');
+Route::delete('/proveedores/delete/{id}', [App\Http\Controllers\DetalleProveedorController::class, 'delete'])->name('proveedores.delete');
+Route::post('/proveedores/crear', [App\Http\Controllers\DetalleProveedorController::class, 'store'])->name('proveedores.store');
+
 
 
 Auth::routes();
