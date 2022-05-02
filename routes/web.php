@@ -40,7 +40,12 @@ Route::post('/clientes/crear', [App\Http\Controllers\DetalleClientesController::
 
 
 Route::get('/productos', [App\Http\Controllers\DetalleProductosController::class, 'producto'])->name('producto');
-
+Route::get('/productos/crear', [App\Http\Controllers\DetalleProductosController::class, 'create_producto'])->name('producto.create');
+Route::get('/productos/edit/{id}', [App\Http\Controllers\DetalleProductosController::class, 'edit'])->name('productos.edit');
+Route::get('/productos/detalles/{id}', [App\Http\Controllers\DetalleProductosController::class, 'details'])->name('productos.detalles');
+Route::post('/productos/update/{id}', [App\Http\Controllers\DetalleProductosController::class, 'update'])->name('productos.update');
+Route::delete('/productos/delete/{id}', [App\Http\Controllers\DetalleProductosController::class, 'delete'])->name('productos.delete');
+Route::post('/productos/crear', [App\Http\Controllers\DetalleProductosController::class, 'store'])->name('productos.store');
 
 
 Route::get('/proveedores', [App\Http\Controllers\DetalleProveedorController::class, 'proveedor'])->name('proveedor');
