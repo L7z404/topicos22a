@@ -21,15 +21,15 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label for="name" class="col-sm-2 col-form-label">Correo</label>
+                            <label for="name" class="col-sm-2 col-form-label">Tipo</label>
                             <div class="col-sm-7">
-                                <input type="email" class="form-control" name="email" placeholder="Correo" value="{{$producto->email}}">
+                                <input type="text" class="form-control" name="type" placeholder="Tipo" value="{{$producto->type}}">
                             </div>
                         </div>
                         <div class="row">
-                            <label for="name" class="col-sm-2 col-form-label">Escribe Nueva Contraseña</label>
+                            <label for="name" class="col-sm-2 col-form-label">Precio</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" name="password" placeholder="Contraseña" value="">
+                                <input type="number" class="form-control" name="price" placeholder="Precio" value="{{$producto->price}}" step=.1>
                             </div>
                         </div>
                     </div>

@@ -22,8 +22,9 @@
                     <thead>
                         <tr>
                             <th scope="col" style="color: purple; font-weight: bold;">ID</th>
-                            <th scope="col" style="color: purple; font-weight: bold;">Name</th>
-                            <th scope="col" style="color: purple; font-weight: bold;">Email</th>
+                            <th scope="col" style="color: purple; font-weight: bold;">Nombre</th>
+                            <th scope="col" style="color: purple; font-weight: bold;">Tipo</th>
+							<th scope="col" style="color: purple; font-weight: bold;">Precio</th>
                             <th>&ensp;</th>
                             <th>&ensp;</th>
                             <th>&ensp;</th>
@@ -34,7 +35,8 @@
                         <tr>
                             <td scope="row">{{$producto->id}}</td>
                             <td>{{$producto->name}}</td>
-                            <td>{{$producto->email}}</td>
+                            <td>{{$producto->type}}</td>
+							<td>{{$producto->price}}</td>
                             <td><a href="/productos/detalles/{{$producto->id}}"><button class="btn btn-warning">&ensp;<i class="material-icons">ballot</i>&ensp;</button></a></td>
                             <td><a href="/productos/edit/{{$producto->id}}"><button class="btn btn-info">&ensp;<i class="material-icons">create</i>&ensp;</button></a></td>
                             <td>

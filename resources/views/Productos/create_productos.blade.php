@@ -22,15 +22,15 @@
                             </div>
                         </div>
                         <div class="row">
-                            <label for="name" class="col-sm-2 col-form-label">Correo</label>
+                            <label for="name" class="col-sm-2 col-form-label">Tipo</label>
                             <div class="col-sm-7">
-                                <input type="email" class="form-control" name="email" placeholder="Correo">
+                                <input type="text" class="form-control" name="type" placeholder="Tipo">
                             </div>
                         </div>
                         <div class="row">
-                            <label for="name" class="col-sm-2 col-form-label">Contraseña</label>
+                            <label for="name" class="col-sm-2 col-form-label">Precio</label>
                             <div class="col-sm-7">
-                                <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                                <input type="number" class="form-control" name="price" placeholder="Precio" step=.1>
                             </div>
                         </div>
                     </div>

@@ -20,11 +20,7 @@ class DetalleProductosController extends Controller
 
     public function store(request $request)
     {
-        Productos::create($request->only('name', 'email')
-            + [
-                'password' => bcrypt($request->input('password')),
-
-            ]);
+        $productos = Productos::create($request->all());
         return redirect()->route('producto')->with('success', 'Producto registrado correctamente');
     }
 
@@ -43,13 +39,7 @@ class DetalleProductosController extends Controller
     public function update(Request $request, $id)
     {
         $producto = Productos::findorFail($id);
-        $data = $request->only('name', 'email');
-        if (trim($request->password) == '') {
-            $data = $request->except('password');
-        } else {
-            $data = $request->all();
-            $data['password'] = bcrypt($request->password);
-        }
+        $data = $request->all();
 
         $producto->update($data);
         return redirect()->route('producto')->with('success', 'Producto actualizado exitosamente');
