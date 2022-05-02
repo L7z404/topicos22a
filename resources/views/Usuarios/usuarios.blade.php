@@ -35,13 +35,13 @@
                             <td scope="row">{{$user->id}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td><a href="/usuarios/detalles/{{$user->id}}"><button class="btn btn-warning">Detalle</button></a></td>
-                            <td><a href="/usuarios/edit/{{$user->id}}"><button class="btn btn-info">Edit</button></a></td>
+                            <td><a href="/usuarios/detalles/{{$user->id}}"><button class="btn btn-warning">&ensp;<i class="material-icons">ballot</i>&ensp;</button></a></td>
+                            <td><a href="/usuarios/edit/{{$user->id}}"><button class="btn btn-info">&ensp;<i class="material-icons">create</i>&ensp;</button></a></td>
                             <td>
                                 <form action="{{route('usuarios.delete', $user->id)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger">&ensp;<i class="material-icons">remove_circle</i>&ensp;</button>
                                 </form>
                             </td>
 

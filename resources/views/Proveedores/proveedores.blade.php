@@ -35,13 +35,13 @@
                             <td scope="row">{{$proveedor->id}}</td>
                             <td>{{$proveedor->name}}</td>
                             <td>{{$proveedor->email}}</td>
-                            <td><a href="/proveedores/detalles/{{$proveedor->id}}"><button class="btn btn-warning">Detalle</button></a></td>
-                            <td><a href="/proveedores/edit/{{$proveedor->id}}"><button class="btn btn-info">Edit</button></a></td>
+                            <td><a href="/proveedores/detalles/{{$proveedor->id}}"><button class="btn btn-warning">&ensp;<i class="material-icons">ballot</i>&ensp;</button></a></td>
+                            <td><a href="/proveedores/edit/{{$proveedor->id}}"><button class="btn btn-info">&ensp;<i class="material-icons">create</i>&ensp;</button></a></td>
                             <td>
                                 <form action="{{route('proveedores.delete', $proveedor->id)}}" method="post">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger">&ensp;<i class="material-icons">remove_circle</i>&ensp;</button>
                                 </form>
                             </td>
 
